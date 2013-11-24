@@ -3,6 +3,9 @@ namespace Util;
 
 require_once 'DatabaseException.php';
 
+/**
+ * Paladin class for database connection.
+ */
 class Paladin {
 	protected $pdo;
 
