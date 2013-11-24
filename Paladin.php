@@ -7,19 +7,25 @@ require_once 'DatabaseException.php';
  * Paladin class for database connection.
  */
 class Paladin {
+
+	protected $host   = 'localhost';
+	protected $dbname = 'database';
+	protected $user = 'root';
+	protected $pass = '';
+
 	protected $pdo;
 
-	public function __construct() {
+	public function __construct($config = []) {
 		
-		# Database enviroment config.
-		$host   = 'localhost';
-		$dbname = 'database';
-		$user   = 'root';
-		$pass   = '';
-
+		if(!empty($config)) {
+			$this->host   = $config['host'];
+			$this->dbname = $config['dbname'];
+			$this->user   = $config['user'];
+			$this->pass   = $config['pass'];
+		}
 
 		try {
-			$this->pdo = new \PDO('mysql:dbname='.$dbname.';host='.$host.';charset=utf8', $user, $pass);
+			$this->pdo = new \PDO('mysql:dbname='.$this->dbname.';host='.$this->host.';charset=utf8', $this->user, $this->pass);
 		} catch(\PDOException $e) {
 			throw new DatabaseException($e->getMessage());
 		}

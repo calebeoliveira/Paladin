@@ -1,0 +1,30 @@
+{
+	"name": "becalebe/paladin",
+	"type": "framework",
+	"description": "Lightweight and fast PHP framework for database connections",
+	"keywords": ["database", "SQL", "MySQL"],
+	"homepage": "http://becalebe.com/paladin",
+	"license": "MIT",
+	
+	"authors": [
+		{
+			"name": "Calebe Oliveira",
+			"email": "contato@becalebe.com",
+			"homepage":"http://becalebe.com",
+			"role": "Developer"
+		}
+	],
+	
+	"require": {
+		"php": ">=5.3.0",
+		"ext-pdo": "*"
+	},
+
+	"suggest": {
+		"ext-pdo-mysql": "For MySQL databases"
+	},
+
+	"autoload": {
+		"files": ["Paladin.php"]
+	}
+}
